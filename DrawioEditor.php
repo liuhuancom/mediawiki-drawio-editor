@@ -88,7 +88,7 @@ class DrawioEditor {
         $img_name = $name.".drawio.".$opt_type;
         $img = wfFindFile($img_name);
         if ($img) {
-            $img_url = $img->getViewUrl();
+            $img_url = $img->getUrl();
             $img_url_ts = $img_url.'?ts='.$img->nextHistoryLine()->img_timestamp;
             $img_desc_url = $img->getDescriptionUrl();
 	    $img_height = $img->getHeight().'px';
@@ -131,7 +131,8 @@ class DrawioEditor {
         /* display edit link */
         if (!$readonly) {
             $output .= '<div align="right">';
-	    $output .= '<span class="mw-editsection">';
+        $output .= '<span class="mw-editsection">';
+        // $output .= '<span class="mw-editdrawio">';
 	    $output .= '<span class="mw-editsection-bracket">[</span>';
             $output .= $edit_ahref;
             $output .= wfMessage('edit')->text().'</a>';
